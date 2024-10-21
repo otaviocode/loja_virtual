@@ -20,4 +20,6 @@ public class LojaVirtualApplication {
         // Este comando inicializa a aplicação Spring Boot, chamando o método run() da classe SpringApplication, que arranca a aplicação com base nas configurações fornecidas.
     }
 
+    //essa linha é apenas pra testar se o projeto tá subindo no git kkk ignore
+    
 }
