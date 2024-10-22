@@ -1,25 +1,29 @@
-package backend.develoment; 
-// Define o pacote ao qual esta classe pertence, chamado "backend.develoment". Pacotes organizam classes e facilitam o gerenciamento do projeto.
+package backend.develoment;
 
-import org.springframework.boot.SpringApplication; 
-// Importa a classe SpringApplication do Spring Boot, que é usada para rodar a aplicação.
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication; 
-// Importa a anotação @SpringBootApplication, que é uma combinação de várias anotações do Spring e simplifica a configuração da aplicação.
+@SpringBootApplication
+public class LojaVirtualApplication {
 
-@SpringBootApplication 
-// Marca a classe principal como uma aplicação Spring Boot. Inclui as anotações @Configuration, @EnableAutoConfiguration e @ComponentScan, o que configura e inicializa a aplicação.
-
-public class LojaVirtualApplication { 
-// Define a classe principal da aplicação chamada "LojaVirtualApplication". O nome da classe deve corresponder ao nome do arquivo Java.
-
-    public static void main(String[] args) { 
-    // O método main é o ponto de entrada da aplicação Java. É onde a execução do programa começa.
-
-        SpringApplication.run(LojaVirtualApplication.class, args); 
-        // Este comando inicializa a aplicação Spring Boot, chamando o método run() da classe SpringApplication, que arranca a aplicação com base nas configurações fornecidas.
-    }
-
-    //essa linha é apenas pra testar se o projeto tá subindo no git kkk ignore
-    
+	public static void main(String[] args) {
+		SpringApplication.run(LojaVirtualApplication.class, args);
+	}
 }
+
+/*
+ * Resumo do Código:
+ * 
+ * Este código define a aplicação principal de uma loja virtual usando o
+ * framework Spring Boot. A classe LojaVirtualApplication está marcada com a
+ * anotação @SpringBootApplication, que é essencial para configurar
+ * automaticamente o ambiente Spring e iniciar a aplicação.
+ * 
+ * O método main é o ponto de entrada do programa e usa SpringApplication.run
+ * para iniciar a aplicação. O pacote definido como backend.development agrupa a
+ * aplicação, ajudando na organização do código.
+ * 
+ * Em resumo, este código é a base para rodar uma aplicação Spring Boot,
+ * inicializando automaticamente o servidor e as configurações necessárias para
+ * o funcionamento da aplicação.
+ */

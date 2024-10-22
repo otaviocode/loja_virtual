@@ -1,122 +1,79 @@
-package backend.develoment.model; 
-// Define o pacote ao qual esta classe pertence, chamado "backend.develoment.model". Organiza a classe dentro do projeto.
+package backend.develoment.model;
 
-import java.util.Objects; 
-// Importa a classe "Objects", que contém métodos utilitários como "equals()" e "hashCode()".
+import java.util.Objects;
+import org.springframework.security.core.GrantedAuthority;
+import jakarta.persistence.*;
 
-import org.springframework.security.core.GrantedAuthority; 
-// Importa a interface "GrantedAuthority" do Spring Security, que é usada para representar uma permissão concedida a uma entidade (como um usuário).
+@Entity
+@Table(name = "acesso")
+@SequenceGenerator(name = "seq_acesso", sequenceName = "seq_acesso", initialValue = 1, allocationSize = 1)
+public class Acesso implements GrantedAuthority {
 
-import jakarta.persistence.*; 
-// Importa as anotações do JPA (Jakarta Persistence API) para mapeamento de entidades no banco de dados.
+	private static final long serialVersionUID = 1L;
 
-@Entity 
-// Indica que esta classe é uma entidade JPA e será mapeada para uma tabela no banco de dados.
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_acesso")
+	private Long id;
 
-@Table(name = "acesso") 
-// Especifica que esta entidade será mapeada para uma tabela chamada "acesso" no banco de dados.
+	@Column(nullable = false)
+	private String descricao;
 
-@SequenceGenerator(name = "seq_acesso", sequenceName = "seq_acesso", initialValue = 1, allocationSize = 1) 
-// Define um gerador de sequência para a entidade. Ele cria uma sequência chamada "seq_acesso", com valor inicial 1 e incrementos de 1.
+	@Override
+	public String getAuthority() {
+		return this.descricao;
+	}
 
-public class Acesso implements GrantedAuthority { 
-// Define a classe "Acesso" que implementa a interface "GrantedAuthority" do Spring Security. Isso significa que essa classe pode representar uma autoridade (ou permissão) no sistema.
+	public Long getId() {
+		return id;
+	}
 
-    private static final long serialVersionUID = 1L; 
-    // Define um número de versão único para a serialização da classe. Esse número é importante para garantir a compatibilidade durante a deserialização.
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Id 
-    // Indica que o campo "id" é a chave primária da tabela.
+	public String getDescricao() {
+		return descricao;
+	}
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_acesso") 
-    // Especifica que o valor de "id" será gerado automaticamente usando uma sequência definida anteriormente.
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
-    private Long id; 
-    // Campo "id" que será a chave primária da entidade.
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 
-    @Column(nullable = false) 
-    // Define que o campo "descricao" é obrigatório (não pode ser nulo) no banco de dados.
-
-    private String descricao; 
-    // Campo "descricao" que armazena o tipo de acesso (exemplo: ROLE_ADMIN ou ROLE_SECRETARIO).
-
-    @Override 
-    // Sobrescreve o método da interface "GrantedAuthority".
-
-    public String getAuthority() { 
-    // Implementa o método obrigatório da interface "GrantedAuthority". Retorna a descrição do acesso como a autoridade concedida.
-
-        return this.descricao; 
-        // Retorna o valor de "descricao".
-    }
-
-    public Long getId() { 
-    // Método getter para acessar o campo "id".
-
-        return id; 
-        // Retorna o valor de "id".
-    }
-
-    public void setId(Long id) { 
-    // Método setter para definir o valor de "id".
-
-        this.id = id; 
-        // Atribui o valor de "id".
-    }
-
-    public String getDescricao() { 
-    // Método getter para acessar o campo "descricao".
-
-        return descricao; 
-        // Retorna o valor de "descricao".
-    }
-
-    public void setDescricao(String descricao) { 
-    // Método setter para definir o valor de "descricao".
-
-        this.descricao = descricao; 
-        // Atribui o valor de "descricao".
-    }
-
-    @Override 
-    // Sobrescreve o método "hashCode()" para gerar um código hash para a entidade, baseado no campo "id".
-
-    public int hashCode() { 
-    // Retorna o código hash da entidade.
-
-        return Objects.hash(id); 
-        // Usa o método "Objects.hash()" para gerar um código hash baseado no campo "id".
-    }
-
-    @Override 
-    // Sobrescreve o método "equals()" para comparar dois objetos da classe "Acesso".
-
-    public boolean equals(Object obj) { 
-    // Compara a instância atual com outro objeto.
-
-        if (this == obj) 
-        // Verifica se os objetos são idênticos.
-
-            return true; 
-            // Retorna true se forem o mesmo objeto.
-
-        if (obj == null) 
-        // Verifica se o outro objeto é nulo.
-
-            return false; 
-            // Retorna false se o outro objeto for nulo.
-
-        if (getClass() != obj.getClass()) 
-        // Verifica se o outro objeto é da mesma classe.
-
-            return false; 
-            // Retorna false se as classes forem diferentes.
-
-        Acesso other = (Acesso) obj; 
-        // Converte o outro objeto para o tipo "Acesso".
-
-        return Objects.equals(id, other.id); 
-        // Compara o campo "id" dos dois objetos.
-    }
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Acesso other = (Acesso) obj;
+		return Objects.equals(id, other.id);
+	}
 }
+
+/*
+ * Resumo do Código:
+ * 
+ * Esta classe Java define uma entidade JPA chamada Acesso, usada para
+ * representar as permissões (ou acessos) de um usuário em um sistema Spring
+ * Security. A entidade é mapeada para uma tabela chamada "acesso" no banco de
+ * dados.
+ * 
+ * Atributos: id: chave primária gerada automaticamente usando uma sequência.
+ * descricao: representa o tipo de acesso (como ROLE_ADMIN, ROLE_USER).
+ * 
+ * Métodos: getAuthority(): implementa a interface GrantedAuthority, retornando
+ * a descrição da permissão. Métodos getters e setters para os campos id e
+ * descricao. hashCode() e equals(): métodos sobrescritos para garantir que duas
+ * instâncias de Acesso possam ser comparadas corretamente, usando o campo id.
+ * 
+ * A classe é usada no contexto de segurança, onde cada instância de Acesso
+ * representa uma autoridade ou permissão associada a um usuário dentro do
+ * sistema.
+ */

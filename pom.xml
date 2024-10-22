@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,7 +46,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -56,9 +55,9 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+			<version>42.2.5</version>
 			<scope>runtime</scope>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -70,7 +69,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -115,5 +113,32 @@
 			</releases>
 		</pluginRepository>
 	</pluginRepositories>
-
 </project>
+<!-- Este arquivo XML é um pom.xml, que faz parte de um projeto Maven usado para
+configurar um projeto Java, neste caso um aplicativo Spring Boot chamado
+"loja_virtual". Aqui está um resumo das suas principais seções:
+
+    Projeto Maven: Define a estrutura do projeto, herdando as configurações do
+Spring Boot Starter Parent (versão 3.4.0-SNAPSHOT). O groupId, artifactId e
+version identificam o projeto como "loja_virtual".
+
+    Dependências: Contém uma lista de bibliotecas e frameworks que o projeto
+depende, como:
+        Spring Boot Starter Data JPA: Para manipulação de dados usando JPA.
+        Spring Boot Starter Data REST: Para criar APIs REST.
+        Spring Boot Starter Security: Para segurança e autenticação.
+        Spring Boot Starter Web: Para desenvolvimento web.
+        PostgreSQL: Para conectar o projeto a um banco de dados PostgreSQL.
+        Dependências de teste, como spring-boot-starter-test e spring-security-test.
+
+    Plugins de Build: Usa o plugin spring-boot-maven-plugin para empacotar e
+executar a aplicação Spring Boot.
+
+    Repositórios: Define onde o Maven pode buscar as dependências, como os
+repositórios de versões e snapshots do Spring.
+
+Esse arquivo centraliza a configuração e gerenciamento de dependências,
+compilação e empacotamento do projeto Spring Boot, facilitando o
+desenvolvimento
+e manutenção.
+-->

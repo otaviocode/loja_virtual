@@ -1,33 +1,40 @@
-package backend.develoment.enums; 
-// Define o pacote ao qual esta classe enum pertence, chamado "backend.develoment.enums". Isso organiza melhor o código, colocando enums em um local específico.
+package backend.develoment.enums;
 
-public enum TipoEndereco { 
-// Declara um enum chamado "TipoEndereco", que é um tipo especial de classe em Java, usado para definir um conjunto fixo de constantes (no caso, tipos de endereço).
+public enum TipoEndereco {
 
-    COBRANCA("Cobrança"), 
-    // Define uma constante chamada "COBRANCA" e associa a ela a string "Cobrança".
-    
-    ENTREGA("Entrega"); 
-    // Define uma constante chamada "ENTREGA" e associa a ela a string "Entrega".
+	COBRANCA("Cobrança"), ENTREGA("Entrega");
 
-    private String descricao; 
-    // Declara um campo privado "descricao" para armazenar a descrição associada a cada constante do enum.
+	private String descricao;
 
-    private TipoEndereco(String descricao) { 
-    // Construtor privado do enum, usado para atribuir a string fornecida ao campo "descricao" quando a constante é inicializada.
-        this.descricao = descricao; 
-        // Atribui o valor da string passada para o campo "descricao".
-    }
+	private TipoEndereco(String descricao) {
+		this.descricao = descricao;
+	}
 
-    public String getDescricao() { 
-    // Método público que retorna a descrição associada à constante do enum.
-        return descricao; 
-    }
+	public String getDescricao() {
+		return descricao;
+	}
 
-    @Override 
-    // Sobrescreve o método toString() da classe Object, que é chamado quando uma representação em string da constante é necessária.
-    public String toString() { 
-        return this.descricao; 
-        // Retorna a descrição da constante do enum ao invés do nome da constante, quando o método toString() é chamado.
-    }
+	@Override
+	public String toString() {
+		return this.descricao;
+	}
 }
+
+/*
+ * Resumo do Código:
+ * 
+ * Este código define uma enumeração (enum) chamada TipoEndereco, que representa
+ * dois tipos de endereço:
+ * 
+ * COBRANCA ("Cobrança"), ENTREGA ("Entrega").
+ * 
+ * Cada constante enum tem uma descrição associada, armazenada na variável
+ * descricao. O construtor privado atribui a descrição correspondente a cada
+ * constante no momento da sua criação. O método getDescricao() permite acessar
+ * essa descrição, e o método toString() foi sobrescrito para retornar a
+ * descrição ao invés do nome da constante quando necessário.
+ * 
+ * A enum é útil para padronizar o uso de tipos de endereço dentro da aplicação,
+ * evitando o uso de strings soltas e proporcionando maior consistência no
+ * código.
+ */

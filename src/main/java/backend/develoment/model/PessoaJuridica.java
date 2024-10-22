@@ -1,111 +1,71 @@
 package backend.develoment.model;
-// Define o pacote onde a classe está localizada.
 
 import jakarta.persistence.Entity;
-// Importa a anotação Entity do JPA (Jakarta Persistence API) para mapear a classe como uma entidade.
-
 import jakarta.persistence.Table;
-// Importa a anotação Table do JPA para especificar a tabela correspondente à entidade.
 
 @Entity
-// Indica que esta classe será mapeada para uma tabela no banco de dados.
-
 @Table(name = "pessoa_juridica")
-// Especifica o nome da tabela correspondente a esta entidade.
-
 public class PessoaJuridica extends Pessoa {
-// Define a classe "PessoaJuridica", que herda de "Pessoa", permitindo que ela utilize os atributos e métodos da classe pai.
 
-    private static final long serialVersionUID = 1L;
-    // Número de versão para garantir a compatibilidade durante o processo de serialização.
+	private static final long serialVersionUID = 1L;
 
-    private String cnpj;
-    // Campo para armazenar o CNPJ da pessoa jurídica.
+	private String cnpj;
+	private String inscEstadual;
+	private String inscMunicipal;
+	private String nomeFantasia;
+	private String razaoSocial;
+	private String categoria;
 
-    private String inscEstadual;
-    // Campo para armazenar a inscrição estadual da pessoa jurídica.
+	public String getCnpj() {
+		return cnpj;
+	}
 
-    private String inscMunicipal;
-    // Campo para armazenar a inscrição municipal da pessoa jurídica.
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
 
-    private String nomeFantasia;
-    // Campo para armazenar o nome fantasia da empresa.
+	public String getInscEstadual() {
+		return inscEstadual;
+	}
 
-    private String razaoSocial;
-    // Campo para armazenar a razão social da empresa.
+	public void setInscEstadual(String inscEstadual) {
+		this.inscEstadual = inscEstadual;
+	}
 
-    private String categoria;
-    // Campo para armazenar a categoria da pessoa jurídica.
+	public String getInscMunicipal() {
+		return inscMunicipal;
+	}
 
-    public String getCnpj() {
-    // Método getter para acessar o CNPJ da pessoa jurídica.
+	public void setInscMunicipal(String inscMunicipal) {
+		this.inscMunicipal = inscMunicipal;
+	}
 
-        return cnpj;
-    }
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
 
-    public void setCnpj(String cnpj) {
-    // Método setter para definir o CNPJ da pessoa jurídica.
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
 
-        this.cnpj = cnpj;
-    }
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
 
-    public String getInscEstadual() {
-    // Método getter para acessar a inscrição estadual da pessoa jurídica.
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
 
-        return inscEstadual;
-    }
+	public String getCategoria() {
+		return categoria;
+	}
 
-    public void setInscEstadual(String inscEstadual) {
-    // Método setter para definir a inscrição estadual da pessoa jurídica.
-
-        this.inscEstadual = inscEstadual;
-    }
-
-    public String getInscMunicipal() {
-    // Método getter para acessar a inscrição municipal da pessoa jurídica.
-
-        return inscMunicipal;
-    }
-
-    public void setInscMunicipal(String inscMunicipal) {
-    // Método setter para definir a inscrição municipal da pessoa jurídica.
-
-        this.inscMunicipal = inscMunicipal;
-    }
-
-    public String getNomeFantasia() {
-    // Método getter para acessar o nome fantasia da pessoa jurídica.
-
-        return nomeFantasia;
-    }
-
-    public void setNomeFantasia(String nomeFantasia) {
-    // Método setter para definir o nome fantasia da pessoa jurídica.
-
-        this.nomeFantasia = nomeFantasia;
-    }
-
-    public String getRazaoSocial() {
-    // Método getter para acessar a razão social da pessoa jurídica.
-
-        return razaoSocial;
-    }
-
-    public void setRazaoSocial(String razaoSocial) {
-    // Método setter para definir a razão social da pessoa jurídica.
-
-        this.razaoSocial = razaoSocial;
-    }
-
-    public String getCategoria() {
-    // Método getter para acessar a categoria da pessoa jurídica.
-
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-    // Método setter para definir a categoria da pessoa jurídica.
-
-        this.categoria = categoria;
-    }
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 }
+
+/*
+ * A classe PessoaJuridica herda de Pessoa e contém atributos específicos de uma
+ * pessoa jurídica, como cnpj, inscEstadual, inscMunicipal, entre outros.
+ */
